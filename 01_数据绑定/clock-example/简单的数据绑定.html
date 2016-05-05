@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的数据绑定</title>
+    <!-- 导入 angular -->
+    <script src="../../angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="ClockController">
+    <h5>Hello {{ clock.now | date:'medium'  }}</h5>
+</div>
+
+<script type="text/javascript">
+    angular.module('myApp', []).controller('ClockController', ['$scope', function ($scope) {
+        $scope.clock = {
+            now: new Date()
+        };
+        function updateClock() {
+            $scope.clock.now = new Date();
+        }
+        setInterval(function () {
+            $scope.$apply(updateClock)
+        }, 1000)
+    }]);
+
+</script>
+</body>
+</html>
