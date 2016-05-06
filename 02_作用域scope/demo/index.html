@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <title>Scopes Example</title>
+    <!-- 导入 angular -->
+    <script src="../../angular/angular.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
+        My favorite childhood movie: {{ movie }}
+    </div>
+</div>
+
+<script>
+    // 创建控制器
+    angular.module("myApp", [])
+            .controller("MyController", ['$scope', function ($scope) {
+                $scope.movie = "Duck Tails";
+            }]);
+</script>
+</body>
+</html>
